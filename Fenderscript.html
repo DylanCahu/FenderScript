@@ -1,0 +1,148 @@
+<html>
+<head> 
+<meta charset="UTF-8">
+<title>	JavaScript</title> 
+<script language=JavaScript>
+
+var cpt = 1 ; //variable initialisée, ici un compteur de clic.
+var timer1 = null ; //on prepare le timer
+var nbrimg = 18;
+
+function afficher()
+{
+    cpt=cpt % nbrimg;
+    img1.src = cpt+'.jpg'; //la valeur de 'cpt' correspond au nom d'une photo.
+    
+    
+ var cpt2=cpt+1;
+    cpt2=cpt2%nbrimg;
+    img2.src = cpt2+'.jpg'; //la valeur de 'cpt' correspond au nom d'une photo.
+
+ var cpt3=cpt2+1;
+    cpt3=cpt3%nbrimg;
+    img3.src = cpt3+'.jpg'; //la valeur de 'cpt' correspond au nom d'une photo.
+}
+function augmenter()
+
+{
+    cpt ++; //on incrémante AVANT de verifier 
+    cpt=cpt % nbrimg;
+    afficher();
+
+}
+function diminuer()
+
+{
+    cpt --; //on incrémante AVANT de verifier 
+    if(cpt < 0)cpt=nbrimg-1;
+    cpt=cpt % nbrimg;
+    afficher();
+
+}
+function raz()
+
+{
+    cpt2=1;
+
+    cpt=1
+    img1.src = cpt+'.jpg'; //la valeur de 'cpt' correspond au nom d'une photo.
+
+    cpt++;
+    img2.src = cpt+'.jpg'; //la valeur de 'cpt' correspond au nom d'une photo.
+
+    cpt++;
+    img3.src = cpt+'.jpg'; //la valeur de 'cpt' correspond au nom d'une photo.
+    
+}
+function timer()
+
+{
+
+    
+
+    if (timer1==null )//on definie une verif pour pas démarrer plusieur fois le prog et donc accélerer l'intervalle
+    {
+        timer1 = setInterval('augmenter()' , 1200 ); //timer qui appel augmenter toute les 500 millisecondes
+
+    }
+    
+
+}
+function stop()
+
+{
+
+    if (timer!=null )
+    {     
+        clearInterval(timer1); //arrête l'intervalle du Timer
+        timer1= null;
+    }
+
+}
+</script>
+
+<style>
+body {
+    background-image: url("back.jpg");
+    background-color: #4d1a00da;
+    background-size: cover;}
+img {
+    border: 5px solid transparent;
+    border-radius: 25px;}
+button{
+    color: rgb(255, 255, 255);
+    background-color: black;
+    max-width: 200;
+    border-radius: 25px;
+    font-style: oblique 40deg;
+    font-size: 20px;}
+.title{
+    font-size: 50px;
+    max-width: 600;
+    border-radius: 15px;}
+</style>
+
+<head>
+
+<body>
+<center>
+<button onclick="afficher() ;" class="title"> FenderScript </button>
+</center>
+
+<center>
+    
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<button onclick="diminuer() ;">Précédent</button> <!-- Bouton appelant la fonction -->
+<button onclick="raz() ;">Reset</button> <!-- Bouton appelant la fonction -->
+<button onclick="augmenter() ;">Suivant</button> <!-- Bouton appelant la fonction -->
+<button onclick="timer() ;">Start</button> <!-- Bouton appelant la fonction -->
+<button onclick="stop() ;">Stop</button> <!-- Bouton appelant la fonction -->
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<img name='img1' src='1.jpg' width="500"> <!--on deffinit la balise ou se trouvera la photo en lui allouant une photo 'de base'-->
+<img name='img2' src='2.jpg' width="500"> <!--on deffinit la balise ou se trouvera la photo en lui allouant une photo 'de base'-->
+<img name='img3' src='3.jpg' width="500"> <!--on deffinit la balise ou se trouvera la photo en lui allouant une photo 'de base'-->
+
+</center>
+
+<hr>
+</body>
+</html> 
